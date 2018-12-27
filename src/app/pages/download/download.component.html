@@ -1,3 +1,7 @@
-<p>
-  download works!
-</p>
+<div class="download">
+  <h3>Download Image</h3>
+  <ul *ngFor="let photo of photos">
+    <li (click)="showImage(photo.path)">{{ photo.path }}</li>
+  </ul>
+  <img *ngIf="img_url" [src]="img_url" alt="">
+</div>
