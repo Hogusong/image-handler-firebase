@@ -1,3 +1,34 @@
-<p>
-  upload works!
-</p>
+<div class="dropzone" 
+    dropZone
+    (hovered)="toggleHover($event)"
+    (dropped)="startUpload($event)"
+    [class.hovering]="isHovering">
+
+  <h3>AngularFire Drop Zone</h3>
+  <p>Drag and Drop a File</p>
+  <div class="file">
+  <label class="file-label">
+  <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fa fa-upload"></i>
+      </span>
+      <span class="file-label">
+        or choose a file…
+      </span>
+    </span>
+  </label>
+  </div>
+</div>
+
+<div *ngIf="percentage | async as pct">
+  <progress class="progress is-info" 
+        [value]="pct" 
+        max="100">        
+  </progress>
+  {{ pct | number }}%
+</div>
+
+<div *ngIf="(snapshot | async) as snap">
+  {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} 
+</div>

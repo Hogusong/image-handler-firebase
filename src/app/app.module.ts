@@ -15,6 +15,7 @@ import { DownloadComponent } from './pages/download/download.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DropZoneDirective } from './drop-zone.directive';
+import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DropZoneDirective } from './drop-zone.directive';
     UploadComponent,
     DownloadComponent,
     AboutComponent,
-    DropZoneDirective
+    DropZoneDirective,
+    FileSizePipe
   ],
   imports: [
     BrowserModule,
